@@ -7,13 +7,23 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Simple User CRUD API with Laravel and Repository Pattern
+## Simple User CRUD API with Laravel and Adapter Pattern
 
-This project demonstrates a simple CRUD (Create, Read, Update, Delete) API for managing users using the Laravel framework. The API follows the Singleton Pattern to create and manage user instances.
-- Basically, because our project is a simple CRUD for the user model, there is no difference in the code. However, we could handle this by creating a user helper, but I preferred to use the model instance.
-- The main difference between the factory pattern and the singleton pattern is that the factory pattern allows for the creation of multiple instances of a class, while the singleton pattern ensures that only one instance of a class is ever created.
+This repository demonstrates the implementation of a simple CRUD API for managing user records in a Laravel application, utilizing the Adapter Pattern. The Adapter Pattern is a structural design pattern that allows objects with incompatible interfaces to collaborate. In this context, we use the Adapter Pattern to seamlessly interact with different data sources while maintaining a consistent interface.rn is useful when you need to create different types of objects, while the singleton pattern is useful when you need to ensure that there is only one instance of an object, such as a database connection or a cache.
 
-- The factory pattern is useful when you need to create different types of objects, while the singleton pattern is useful when you need to ensure that there is only one instance of an object, such as a database connection or a cache.
+## How the Adapter Pattern is Applied
+
+### Repository Interface (UserRepositoryInterface):
+We define an interface that outlines the CRUD operations for managing user records. This interface acts as a contract that our adapters will adhere to.
+
+### Repository Adapter (UserRepositoryAdapter):
+We create an adapter class that implements the UserRepositoryInterface. This adapter acts as a bridge between our application's code and the database. It encapsulates the database-specific logic required to perform CRUD operations on user records.
+
+### Service Provider Binding (AppServiceProvider):
+In the Laravel service provider, we establish a binding between the UserRepositoryInterface and the UserRepositoryAdapter implementation. This binding ensures that when our application requires a UserRepositoryInterface instance, Laravel will provide an instance of the adapter.
+
+### Controller (UserController):
+In the controller, we inject an instance of the UserRepositoryInterface via constructor injection. This allows us to interact with user records without worrying about the underlying data source. The controller actions utilize the methods defined in the interface to perform CRUD operations.
 
 ## Getting Started
 - Clone the repository to your local machine.

@@ -2,51 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use App\Adapters\UserAdapter;
 use App\Http\Requests\User\UserStoreRequest;
 use App\Http\Requests\user\UserUpdateRequest;
 use App\Models\User;
+use App\Repositories\UserRepositoryInterface;
 
 class UserController extends Controller
 {
+    private $userRepository;
+
+    public function __construct(UserRepositoryInterface $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
 
     public function index()
     {
-        $users = User::all();
-
-        return response()->json($users);
+        return $this->userRepository->all();
     }
 
     public function show($id)
     {
-        $user = User::find($id);
-
-        return response()->json($user);
+        return $this->userRepository->find($id);
     }
 
     public function store(UserStoreRequest $request)
     {
-        $data = $request->all();
-
-        $user = User::create($data);
-
-        return response()->json($user, 201);
+        return $this->userRepository->create($request->all());
     }
 
     public function update(UserUpdateRequest $request, $id)
     {
-        $data = $request->all();
-
-        $user = User::find($id);
-        $user->update($data);
-
-        return response()->json($user);
+        return $this->userRepository->update($id, $request->all());
     }
 
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
-
-        return response()->json(['deleted_user'=>$user]);
+        $this->userRepository->delete($id);
+        return response()->json(['message' => 'User deleted']);
     }
 }
