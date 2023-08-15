@@ -18,7 +18,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Design Pattern Branches
 
 1. **Observer Pattern Branch:** This branch demonstrates the Observer pattern, which enables a subject to notify its observers about changes in its state. Experience the power of decoupling and event-driven architecture.
- - Branch Name: observerPattern
+   - Branch Name: observerPattern
 
 2. **Repository Pattern Branch:** Switch to this branch to dive into the Repository pattern. See how this pattern helps abstract database operations and provides a clean interface for data access.
    - Branch Name: repositoryPattern
