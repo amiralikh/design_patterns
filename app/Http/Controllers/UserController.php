@@ -2,35 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use App\Facades\UserFacade;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     public function index()
     {
-        return UserFacade::getAllUsers();
-    }
-
-    public function show($id)
-    {
-        return UserFacade::getUserById($id);
+        $users = User::all();
+        return response()->json($users);
     }
 
     public function store(Request $request)
     {
-        $data = $request->all();
-        return UserFacade::createUser($data);
+        $user = User::create($request->all());
+        return response()->json($user, 201);
     }
 
-    public function update(Request $request, $id)
+    public function show(User $user)
     {
-        $data = $request->all();
-        return UserFacade::updateUser($id, $data);
+        return response()->json($user);
     }
 
-    public function destroy($id)
+    public function update(Request $request, User $user)
     {
-        return UserFacade::deleteUser($id);
+        $user->update($request->all());
+        return response()->json($user);
+    }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return response()->json(null, 204);
     }
 }
