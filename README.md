@@ -18,17 +18,25 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Design Pattern Branches
 
 1. **Observer Pattern Branch:** This branch demonstrates the Observer pattern, which enables a subject to notify its observers about changes in its state. Experience the power of decoupling and event-driven architecture.
+ - Branch Name: observerPattern
 
 2. **Repository Pattern Branch:** Switch to this branch to dive into the Repository pattern. See how this pattern helps abstract database operations and provides a clean interface for data access.
+   - Branch Name: repositoryPattern
 
 3. **Factory Pattern Branch:** Explore the Factory pattern, which is used to create objects without specifying the exact class of object that will be created. This promotes flexibility and modularity in your code.
+   - Branch Name: factoryPattern
 
 4. **Decorator Pattern Branch:** The Decorator pattern branch showcases how to dynamically add responsibilities to objects. Enhance the behavior of objects without altering their source code.
+   - Branch Name: decoratetorPattern
 
 5. **Singleton Pattern Branch:** Check out the Singleton pattern branch to learn about ensuring a class has only one instance and providing a global point of access to that instance.
+   - Branch Name: singletonPattern
 
 6. **Facade Pattern Branch:** Experience the Facade pattern, which provides a simplified interface to a complex subsystem. See how you can make interactions with your system more straightforward.
+   - Branch Name: facadePattern
+
 7. **Adapter Pattern:** The Adapter Patternenables compatibility between different interfaces. Explore this branch to understand how we've used adapters to make our User CRUD API work seamlessly with various data sources.
+   - Branch Name: adapterPattern
 
 
 ## How to Use
