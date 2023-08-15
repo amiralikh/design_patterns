@@ -40,7 +40,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 
 ## How to Use
-1. Clone this repository to your local machine.
+1. Clone this repository to your local machine `git clone https://github.com/amiralikh/design_patterns.git`.
 
 2. Navigate to the desired branch using `git checkout <branch-name>`. Choose the design pattern you want to explore.
 
