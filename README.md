@@ -9,9 +9,7 @@
 
 ## Simple User CRUD API with Laravel and Repository Pattern
 
-Simple User CRUD API with Laravel and Repository Pattern
-This is a simple user CRUD API that is built using Laravel and the repository pattern. The repository pattern is a design pattern that helps to decouple the code that interacts with the database from the code that uses the data. This makes the code more modular and easier to test.
-
+This project demonstrates a simple CRUD (Create, Read, Update, Delete) API for managing users using the Laravel framework. The API follows the Factory pattern to create and manage user instances.
 ## Getting Started
 - Clone the repository to your local machine.
 - Install the dependencies by running `composer install`.
