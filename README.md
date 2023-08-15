@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Simple User CRUD API with Laravel and Repository Pattern
+## Simple User CRUD API with Laravel and Factory Pattern
 
 This project demonstrates a simple CRUD (Create, Read, Update, Delete) API for managing users using the Laravel framework. The API follows the Factory pattern to create and manage user instances.
 ## Getting Started
