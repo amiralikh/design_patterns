@@ -5,38 +5,48 @@ namespace App\Http\Controllers;
 use App\Http\Requests\User\UserStoreRequest;
 use App\Http\Requests\user\UserUpdateRequest;
 use App\Models\User;
-use App\Repositories\UserRepository;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
 
     public function index()
     {
-        $users = User::get();
-        return response()->json(['data' => $users]);
+        $users = User::all();
+
+        return response()->json($users);
+    }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+
+        return response()->json($user);
     }
 
     public function store(UserStoreRequest $request)
     {
-        $user = User::factory()->create($request->all());
-        return response()->json(['data' => $user], 201);
+        $data = $request->all();
+
+        $user = User::create($data);
+
+        return response()->json($user, 201);
     }
 
-    public function show(User $user)
+    public function update(UserUpdateRequest $request, $id)
     {
-        return response()->json(['data' => $user]);
+        $data = $request->all();
+
+        $user = User::find($id);
+        $user->update($data);
+
+        return response()->json($user);
     }
 
-    public function update(UserUpdateRequest $request, User $user)
+    public function destroy($id)
     {
-        $user->update($request->all());
-        return response()->json(['data' => $user]);
-    }
-
-    public function destroy(User $user)
-    {
+        $user = User::find($id);
         $user->delete();
-        return response()->json(['message' => 'User deleted']);
+
+        return response()->json(['deleted_user'=>$user]);
     }
 }

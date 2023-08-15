@@ -42,4 +42,41 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    protected static $instance;
+
+    public static function getInstance()
+    {
+        if (self::$instance === null) {
+            self::$instance = new User();
+        }
+
+        return self::$instance;
+    }
+
+    public function getAllUsers()
+    {
+        return $this->query()->get();
+    }
+
+    public function getUserById($id)
+    {
+        return $this->query()->where('id', $id)->first();
+    }
+
+    public function createUser($data)
+    {
+        return $this->query()->insert($data);
+    }
+
+    public function updateUser($id, $data)
+    {
+        return $this->query()->where('id', $id)->update($data);
+    }
+
+    public function deleteUser($id)
+    {
+        return $this->query()->where('id', $id)->delete();
+    }
 }

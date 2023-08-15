@@ -9,7 +9,12 @@
 
 ## Simple User CRUD API with Laravel and Repository Pattern
 
-This project demonstrates a simple CRUD (Create, Read, Update, Delete) API for managing users using the Laravel framework. The API follows the Factory pattern to create and manage user instances.
+This project demonstrates a simple CRUD (Create, Read, Update, Delete) API for managing users using the Laravel framework. The API follows the Singleton Pattern to create and manage user instances.
+- Basically, because our project is a simple CRUD for the user model, there is no difference in the code. However, we could handle this by creating a user helper, but I preferred to use the model instance.
+- The main difference between the factory pattern and the singleton pattern is that the factory pattern allows for the creation of multiple instances of a class, while the singleton pattern ensures that only one instance of a class is ever created.
+
+- The factory pattern is useful when you need to create different types of objects, while the singleton pattern is useful when you need to ensure that there is only one instance of an object, such as a database connection or a cache.
+
 ## Getting Started
 - Clone the repository to your local machine.
 - Install the dependencies by running `composer install`.
