@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Simple User CRUD API with Laravel and Repository Pattern
+## Simple User CRUD API with Laravel and Singleton Pattern
 
 This project demonstrates a simple CRUD (Create, Read, Update, Delete) API for managing users using the Laravel framework. The API follows the Singleton Pattern to create and manage user instances.
 - Basically, because our project is a simple CRUD for the user model, there is no difference in the code. However, we could handle this by creating a user helper, but I preferred to use the model instance.
